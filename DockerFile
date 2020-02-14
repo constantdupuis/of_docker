@@ -1,1 +1,11 @@
+# OpenFrameworks to build WebAssembly whil editing in Windows
+#
+# VERSION               0.0.1
 FROM ubuntu
+LABEL Description="This image is used try building OF webassembly app while editing in Windiws" Vendor="Constant Dupuis" Version="1.0"
+#RUN apt-get update && apt-get upgrade
+WORKDIR /home
+RUN mkdir dev 
+WORKDIR dev
+COPY of_v0.11.0_linux64gcc6_release.tar .
+
