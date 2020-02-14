@@ -3,9 +3,29 @@
 # VERSION               0.0.1
 FROM ubuntu
 LABEL Description="This image is used try building OF webassembly app while editing in Windiws" Vendor="Constant Dupuis" Version="1.0"
-#RUN apt-get update && apt-get upgrade
+#SHELL ["/bin/bash", "-i"]
+# Update and install dev tools
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt install -y build-essential git cmake python wget 
+
+# Create folders and unpack OpenFrameworks
 WORKDIR /home
-RUN mkdir dev 
-WORKDIR dev
-COPY of_v0.11.0_linux64gcc6_release.tar .
+RUN mkdir dev
+WORKDIR /home/dev
+RUN mkdir OF
+WORKDIR OF
+COPY of_v0.11.0_linux64gcc6_release.tar.gz .
+RUN tar xzvf of_v0.11.0_linux64gcc6_release.tar.gz
+RUN rm of_v0.11.0_linux64gcc6_release.tar.gz
+RUN mkdir apps
+
+# Install Emscript
+WORKDIR /home/dev
+RUN git clone https://github.com/emscripten-core/emsdk
+WORKDIR emsdk
+RUN ./emsdk install latest-fastcomp
+RUN ./emsdk activate latest-fastcomp
+#RUN source ./emsdk_env.sh
+
+
 

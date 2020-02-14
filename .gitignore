@@ -1,2 +1,6 @@
 *.tar
 *.gz
+
+obj
+bin
+.vs
