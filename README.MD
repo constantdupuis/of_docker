@@ -57,7 +57,7 @@ root@1ebd8e382c9c:/home/dev/emsdk#
 First load emsdk env
 
 ```bash
-root@1ebd8e382c9c:/home/dev# source emsdk_env.sh
+root@1ebd8e382c9c:/home/dev/emsdk# source emsdk_env.sh
 ```
 
 Them move to `/home/dev/OF/apps/mySketch` and build project with emscripten.
