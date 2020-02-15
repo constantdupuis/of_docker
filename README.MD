@@ -4,9 +4,11 @@ The goal is to build a docker image allowing to build WebAssembly program while 
 
 # Setup
 
-Install Docket Desktop.
+Install Docker Desktop.
 
 https://hub.docker.com/?overlay=onboarding
+
+> Installing Docker Desktop work only on Windows 10 Pro, with Hyper-V installed and hardware virtualization activated. After Hyper-V activation Virtual-Box won't work anymore, if you have installed it.
 
 Clone this repository
 
@@ -19,5 +21,17 @@ Change directory to of_docker folder. Download in this folder the linux version 
 Then run the build.ps1 script.
 
 ```powershell
-Child-Item
+./build.ps1
 ```
+
+This will build an image with OF and emsdk setup.
+
+## Test
+
+Call the run.ps1 script.
+
+```powershell
+./run.ps1
+```
+
+You will land inside a shell in the running container.
