@@ -2,6 +2,8 @@
 
 The goal is to build a docker image allowing to build WebAssembly OpenFrameworks projects, while coding and also building under windows in Visual Studio.
 
+All this was build to work on Windows machine.
+
 # Quick Start
 
 Install Docker Desktop.
