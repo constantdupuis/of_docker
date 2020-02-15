@@ -1,0 +1,1 @@
+docker cp of_emscript:/home/dev/OF/of_v0.11.0_linux64gcc6_release/examples/3d/3DPrimitivesExample/bin ./test/

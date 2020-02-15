@@ -1,11 +1,15 @@
 # OpenFrameworks to build WebAssembly whil editing in Windows
 #
-# VERSION               0.0.1
+# VERSION               0.1.0
 FROM ubuntu
-LABEL Description="This image is used try building OF webassembly app while editing in Windiws" Vendor="Constant Dupuis" Version="1.0"
-#SHELL ["/bin/bash", "-i"]
-# Update and install dev tools
-RUN apt-get -y update && apt-get -y upgrade
+LABEL Description="This image is used try building OF webassembly app while editing in Windows" Vendor="Constant Dupuis" Version="1.0"
+
+# Update & Upgrade Ubuntu
+# comment upgrade if you want a faster image build
+RUN apt-get -y update 
+RUN apt-get -y upgrade
+
+# Install dev tools MANDATORY
 RUN apt install -y build-essential git cmake python wget 
 
 # Create folders and unpack OpenFrameworks
@@ -23,8 +27,8 @@ RUN mkdir apps
 WORKDIR /home/dev
 RUN git clone https://github.com/emscripten-core/emsdk
 WORKDIR emsdk
-RUN ./emsdk install latest-fastcomp
-RUN ./emsdk activate latest-fastcomp
+RUN ./emsdk install 1.39.4-fastcomp
+RUN ./emsdk activate 1.39.4-fastcomp
 #RUN source ./emsdk_env.sh
 
 
